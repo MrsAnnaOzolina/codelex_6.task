@@ -1,8 +1,9 @@
 import { NoEmitOnErrorsPlugin } from "webpack";
 
-const btn = document.querySelectorAll<any>('.firstboxes') || null
-const box = document.querySelectorAll<any>('.secondboxes') || null
-const body =document.querySelector<any>('body') || null
+const btn = document.querySelectorAll<HTMLDivElement>('.firstboxes') 
+const box = document.querySelectorAll<HTMLDivElement>('.secondboxes') 
+const body =document.querySelector<HTMLBodyElement | null>('body') 
+const inputfield = document.querySelector(".inputtext") 
 
 
 btn[0]?.addEventListener('click', () => {
@@ -31,7 +32,7 @@ box[0]?.addEventListener('mouseout', () => {
 });
 
 btn[4]?.addEventListener('click', () => {
-        const colors: string[]= ['red', 'yellow', 'green', 'grey', 'blue'];
+        const colors = ['red', 'yellow', 'green', 'grey', 'blue'];
         let random = Math.floor(Math.random() * 5);
 
       box[4].style.backgroundColor = colors[random];
@@ -49,23 +50,26 @@ btn[3]?.addEventListener('click', () => {
 // Nospiežot uz 6. pogas, 6.kvadrātā skaitlis sāk ik pa 3 sekundēm
     // palielināties par 1. Kad tiek līdz 10, apstājas.
 
-let d: number = 0;
+let d = 0;
 btn[5]?.addEventListener('click', function () {
     let myinterval = setInterval(myTimer, 300);} , false);
 function myTimer() {
     if (d !== 10 ){
-        box[5].innerHTML = d; 
+        box[5].innerHTML = d.toString(); 
         d++;
     }
     else {
-        box[5].innerHTML = 10; 
+        box[5].innerHTML = String(10); 
     }
 }
 
 //INPUT TEXT
 
-// const inputfield = document.getElementById("inputtext") |
+
 // const outputfield = document.getElementById("outputtext");
-// function fun1(){
-//     outputfield.innerHTML = inputfield.value;
-// }
+
+
+// inputfield.addEventListener('keyup', () => {
+//     const outputText = (document.getElementById("inputfield") as HTMLInputElement).value;
+//     document.getElementById('outputtext').innerHTML = outputText;
+// });
