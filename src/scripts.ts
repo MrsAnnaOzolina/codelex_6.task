@@ -37,40 +37,32 @@ btn[4]?.addEventListener('click', () => {
       box[4].style.backgroundColor = colors[random];
 });
 
-
-// Nospiežot uz 4. pogas, 4. kvadrāts kļūst neredzams, nospiežot
-// vēlreiz, tas atkal kļūst redzams.
-
-// btn[3]?.addEventListener('click', () => {
-//         box[3].style.display ="none";
-//         // box[3].style.backgroundColor = "#1FC2AE";
-// });
-
-// btn[3]?.addEventListener('click keydown', () => {
-//     box[3].style.backgroundColor = "#1FC2AE";
-// });
-
-
-
-
-    // Nospiežot uz 6. pogas, 6.kvadrātā skaitlis sāk ik pa 3 sekundēm
-    // palielināties par 1. Kad tiek līdz 10, apstājas.
-
-    let d:number = 16; 
-    btn[5]?.addEventListener('click', () => {
-       const myinterval = setInterval(
-        function myTimer (){
-        for (let i=0; i<11; i++){
-            if ( i < 11){
-                d=d+1; 
-            box[5].style.fontSize = d+ "px";
-        } else{
-            clearInterval(myinterval);    
-        }
-        }},3000
-       ); 
+btn[3]?.addEventListener('click', () => {
+    if (box[3].style.display !== "none") {
+        box[3].style.display = "none"
+    } else {
+        box[3].style.display = "block"
+        box[3].style.backgroundColor = "#1FC2AE";   
+    }
 });
 
+// Nospiežot uz 6. pogas, 6.kvadrātā skaitlis sāk ik pa 3 sekundēm
+    // palielināties par 1. Kad tiek līdz 10, apstājas.
+
+let d: number = 16;
+btn[5]?.addEventListener('click', function () {
+    let myinterval = setInterval(myTimer, 3000);} , false);
+function myTimer() {
+
+    if (d !== 27) {
+        box[5].style.fontSize = d + "px";
+        d++;
+    }
+    else {
+        box[5].style.fontSize = 28 + "px";
+
+    }
+}
 
 
 
