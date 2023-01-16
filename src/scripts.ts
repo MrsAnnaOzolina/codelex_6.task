@@ -49,22 +49,18 @@ btn[3]?.addEventListener('click', () => {
 // Nospiežot uz 6. pogas, 6.kvadrātā skaitlis sāk ik pa 3 sekundēm
     // palielināties par 1. Kad tiek līdz 10, apstājas.
 
-let d: number = 16;
+let d: number = 0;
 btn[5]?.addEventListener('click', function () {
-    let myinterval = setInterval(myTimer, 3000);} , false);
+    let myinterval = setInterval(myTimer, 300);} , false);
 function myTimer() {
-
-    if (d !== 27) {
-        box[5].style.fontSize = d + "px";
+    if (d !== 10 ){
+        box[5].innerHTML = d; 
         d++;
     }
     else {
-        box[5].style.fontSize = 28 + "px";
-
+        box[5].innerHTML = 10; 
     }
 }
-
-
 
 //INPUT TEXT
 
